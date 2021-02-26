@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "pre-commit": "echo \"[Husky] pre-commit example message\"",
+    "commit-msg": "echo \"[Husky] commit-msg example message\"",
+    "prepare-commit-msg": "echo \"[Husky] prepare-commit-msg example message\""
+  }
+}
