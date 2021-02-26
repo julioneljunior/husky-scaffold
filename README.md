@@ -5,12 +5,15 @@
 
 <details>
   <summary> 
-    1. Add node, express and cors
+    1. Create a basic index.js (back-end)
   </summary>
 
 > Added to test the lint-staged and confirm that code is still running. 
 ### steps
 #### Add dependencies
+Express - https://github.com/expressjs/express
+
+Cors - https://github.com/expressjs/cors
  ```javascript
 npm i --save express cors;
 ```
@@ -48,7 +51,8 @@ npm start
 
 Running on 3000!
 ```
-#### Open localhost:3000 in a browser and check the console message
+#### Test using a browser
+Open localhost:3000 in a browser and check the console message
 ```javascript
 $ npm start
 
