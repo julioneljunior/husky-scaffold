@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A husky scaffold to javascript/node projects, using semistandard, lint-staged, commitizen, commitlint",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start":"node index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/julioneljunior/husky-scaffold.git"
