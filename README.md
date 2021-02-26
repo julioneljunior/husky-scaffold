@@ -5,7 +5,7 @@
 
 <details>
   <summary> 
-    1. Create a basic index.js (back-end)
+    1. Create a basic index.js (back-end) [branch: feat-node-express-cors]
   </summary>
 
 > Added to test the lint-staged and confirm that code is still running. 
