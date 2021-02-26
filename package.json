@@ -1,0 +1,23 @@
+{
+  "name": "husky-scaffold",
+  "version": "1.0.0",
+  "description": "A husky scaffold to javascript/node projects, using semistandard, lint-staged, commitizen, commitlint",
+  "main": "index.js",
+  "scripts": {
+    "start":"node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julioneljunior/husky-scaffold.git"
+  },
+  "author": "Elcio Junior",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/julioneljunior/husky-scaffold/issues"
+  },
+  "homepage": "https://github.com/julioneljunior/husky-scaffold#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
