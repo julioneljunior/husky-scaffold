@@ -109,7 +109,6 @@
   ```
   > If you see a log like the one above, you have successfully configured husky in your project!
 </details>
-
 <details>
   <summary> 
     3. Add semistandard and lint-staged [branch: feat-semistandard-lint-staged]
@@ -196,30 +195,30 @@
 
   ```javascript
   elcio@DESKTOP-H3TVAF1 MINGW64 /d/dev/personal/projects/study/guides/husky-scaffold (feat-semistandard-lint-staged)
-$ git add index.js 
+  $ git add index.js 
 
-elcio@DESKTOP-H3TVAF1 MINGW64 /d/dev/personal/projects/study/guides/husky-scaffold (feat-semistandard-lint-staged)
-$ git commit -m "refactor: update index to test lint-staged"
-husky > pre-commit (node v12.18.3)
-[STARTED] Preparing...
-[SUCCESS] Preparing...
-[STARTED] Running tasks...      
-[STARTED] Running tasks for *.js
-[STARTED] ./node_modules/.bin/semistandard --fix
-[FAILED] ./node_modules/.bin/semistandard --fix [FAILED]
-[FAILED] ./node_modules/.bin/semistandard --fix [FAILED]
-[SUCCESS] Running tasks...
-[STARTED] Applying modifications...
-[SKIPPED] Skipped because of errors from tasks.
-[STARTED] Reverting to original state because of errors...
-[SUCCESS] Reverting to original state because of errors...
-[STARTED] Cleaning up...
-[SUCCESS] Cleaning up...
+  elcio@DESKTOP-H3TVAF1 MINGW64 /d/dev/personal/projects/study/guides/husky-scaffold (feat-semistandard-lint-staged)
+  $ git commit -m "refactor: update index to test lint-staged"
+  husky > pre-commit (node v12.18.3)
+  [STARTED] Preparing...
+  [SUCCESS] Preparing...
+  [STARTED] Running tasks...      
+  [STARTED] Running tasks for *.js
+  [STARTED] ./node_modules/.bin/semistandard --fix
+  [FAILED] ./node_modules/.bin/semistandard --fix [FAILED]
+  [FAILED] ./node_modules/.bin/semistandard --fix [FAILED]
+  [SUCCESS] Running tasks...
+  [STARTED] Applying modifications...
+  [SKIPPED] Skipped because of errors from tasks.
+  [STARTED] Reverting to original state because of errors...
+  [SUCCESS] Reverting to original state because of errors...
+  [STARTED] Cleaning up...
+  [SUCCESS] Cleaning up...
 
-✖ ./node_modules/.bin/semistandard --fix:
-semistandard: Semicolons For All! (https://github.com/standard/semistandard)
-  D:\dev\personal\projects\study\guides\husky-scaffold\index.js:6:7: 'thisWillGiveError' is assigned a value but never used.
-husky > pre-commit hook failed (add --no-verify to bypass)
-```
-> If you see a log like the one above, you have successfully configured lint-staged and lint (semistandard) in your project!
+  ✖ ./node_modules/.bin/semistandard --fix:
+  semistandard: Semicolons For All! (https://github.com/standard/semistandard)
+    D:\dev\personal\projects\study\guides\husky-scaffold\index.js:6:7: 'thisWillGiveError' is assigned a value but never used.
+  husky > pre-commit hook failed (add --no-verify to bypass)
+  ```
+  > If you see a log like the one above, you have successfully configured lint-staged and lint (semistandard) in your project!
 </details>
