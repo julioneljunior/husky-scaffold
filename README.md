@@ -109,3 +109,116 @@
   ```
   > If you see a log like the one above, you have successfully configured husky in your project!
 </details>
+<details>
+  <summary> 
+    3. Add semistandard and lint-staged [branch: feat-semistandard-lint-staged]
+  </summary>
+
+  > Add semistandard lint and lint-staged for lint automation. 
+  ### steps
+  #### Add dependency
+  Semistandard - https://github.com/standard/semistandard
+  
+  Lint-Staged - https://github.com/okonet/lint-staged
+  ```javascript
+  npm i --save-dev semistandard lint-staged;
+  ```
+  #### Add .editorconfig file
+
+  Editorconfig - https://editorconfig.org/
+
+  > Below a example of .editorconfig file (check if your IDE have a plugin to generate automatically)
+
+  ```json
+    # https://editorconfig.org
+    root = true
+
+    [*]
+    indent_style = space
+    indent_size = 2
+    charset = utf-8
+    trim_trailing_whitespace = true
+    insert_final_newline = true
+    end_of_line = lf
+
+    [*.md]
+    trim_trailing_whitespace = false
+
+    [*.js]
+    quote_type = "single"
+
+  ```
+  #### Create a lint-staged configuration file (.lintstagedrc.json)
+
+  > This configuration below is used to check all files with extension '.js' and check the style with semistandard rules 
+  ```javascript
+  {
+    "*.js": [
+      "./node_modules/.bin/semistandard --fix"
+    ]
+  }
+  ```
+  >If you want to use another lint, this is where you must change to which lint you want (and add it to the project via npm) 
+  #### Update husky hook to use lint-staged on pre-commit step
+
+  ```javascript
+  {
+    "hooks": {
+      "hooks": {
+        "pre-commit": "./node_modules/.bin/lint-staged",
+        "commit-msg": "echo \"[Husky] commit-msg example message\"",
+        "prepare-commit-msg": "echo \"[Husky] prepare-commit-msg example message\""
+      }
+    }
+  ```
+  #### Test lint-staged action with husky
+
+  If you are using my file to create a backend with express (index.js), you should check the contents of this file. 
+  
+  There are two errors that the semistandard will not like:
+  
+  1. line 6
+  ```javascript
+  let thisWillGiveError = "" 
+  ```
+  >'thisWillGiveError' is assigned a value but never used. (no-unused-vars)semistandard(no-unused-vars)
+
+  2. line 12
+  ```javascript
+  console.log('GET / called!')
+  ```
+
+  > Missing semicolon. (semi)semistandard(semi
+  
+  To test the lint-staged, resolve one of them and commit the index.js file
+  For this documentation. I'll solve the second, add semicolon in line 12 and committing file:
+
+  ```javascript
+  elcio@DESKTOP-H3TVAF1 MINGW64 /d/dev/personal/projects/study/guides/husky-scaffold (feat-semistandard-lint-staged)
+  $ git add index.js 
+
+  elcio@DESKTOP-H3TVAF1 MINGW64 /d/dev/personal/projects/study/guides/husky-scaffold (feat-semistandard-lint-staged)
+  $ git commit -m "refactor: update index to test lint-staged"
+  husky > pre-commit (node v12.18.3)
+  [STARTED] Preparing...
+  [SUCCESS] Preparing...
+  [STARTED] Running tasks...      
+  [STARTED] Running tasks for *.js
+  [STARTED] ./node_modules/.bin/semistandard --fix
+  [FAILED] ./node_modules/.bin/semistandard --fix [FAILED]
+  [FAILED] ./node_modules/.bin/semistandard --fix [FAILED]
+  [SUCCESS] Running tasks...
+  [STARTED] Applying modifications...
+  [SKIPPED] Skipped because of errors from tasks.
+  [STARTED] Reverting to original state because of errors...
+  [SUCCESS] Reverting to original state because of errors...
+  [STARTED] Cleaning up...
+  [SUCCESS] Cleaning up...
+
+  ✖ ./node_modules/.bin/semistandard --fix:
+  semistandard: Semicolons For All! (https://github.com/standard/semistandard)
+    D:\dev\personal\projects\study\guides\husky-scaffold\index.js:6:7: 'thisWillGiveError' is assigned a value but never used.
+  husky > pre-commit hook failed (add --no-verify to bypass)
+  ```
+  > If you see a log like the one above, you have successfully configured lint-staged and lint (semistandard) in your project!
+</details>
