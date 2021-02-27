@@ -222,3 +222,83 @@
   ```
   > If you see a log like the one above, you have successfully configured lint-staged and lint (semistandard) in your project!
 </details>
+<details>
+  <summary> 
+    4. Add commitlint [branch: feat-commitlint]
+  </summary>
+
+  > Add commitlint to check the messages of commits
+  ### steps
+  #### Add dependency
+  Commitlint - https://github.com/conventional-changelog/commitlint
+
+  ```javascript
+  npm install --save-dev @commitlint/{cli,config-conventional}
+  ```
+  #### Create a commitlint configuration file (.commitlintrc.json )
+
+  > This configuration below is used to set the config-conventional for your commit messages https://www.conventionalcommits.org 
+
+  ```javascript
+  {
+    "extends": ["@commitlint/config-conventional"]
+  }
+  ```
+
+  #### Update husky hook to use commitlint on commit-msg step
+
+  ```javascript
+  {
+    "hooks": {
+      "hooks": {
+        "pre-commit": "./node_modules/.bin/lint-staged",
+        "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+        "prepare-commit-msg": "echo \"[Husky] prepare-commit-msg example message\""
+      }
+    }
+  ```
+  #### Test commitlint action with husky
+
+  First, confirm and send the package.json and the configuration file.
+
+  After doing this, all of your commit messages will be checked, so let's try it out!
+
+  Change the index.js by adding some '!' on one of the code consoles.
+
+  Now, let's test the commitlint. 
+
+  ```javascript
+  elcio@DESKTOP-H3TVAF1 MINGW64 /d/dev/personal/projects/study/guides/husky-scaffold (feat-commitlint)
+  $ git add index.js 
+
+  elcio@DESKTOP-H3TVAF1 MINGW64 /d/dev/personal/projects/study/guides/husky-scaffold (feat-commitlint)
+  $ git commit -m "update index to test commitlint"
+  husky > pre-commit (node v12.18.3)
+  [STARTED] Preparing...
+  [SUCCESS] Preparing...
+  [STARTED] Running tasks...
+  [STARTED] Running tasks for *.js
+  [STARTED] ./node_modules/.bin/semistandard --fix
+  [SUCCESS] ./node_modules/.bin/semistandard --fix
+  [SUCCESS] Running tasks for *.js
+  [SUCCESS] Running tasks...
+  [STARTED] Applying modifications...
+  [SUCCESS] Applying modifications...
+  [STARTED] Cleaning up...
+  [SUCCESS] Cleaning up...
+  husky > prepare-commit-msg (node v12.18.3)
+  [Husky] prepare-commit-msg example message
+  husky > commit-msg (node v12.18.3)
+  ⧗   input: update index to test commitlint
+  ✖   subject may not be empty [subject-empty]
+  ✖   type may not be empty [type-empty]
+
+  ✖   found 2 problems, 0 warnings
+  ⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint
+
+  husky > commit-msg hook failed (add --no-verify to bypass)
+  ```
+
+  > If you see a log like the one above, you have successfully configured commitlint in your project!
+
+</details>
