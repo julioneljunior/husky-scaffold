@@ -8,7 +8,9 @@
   <summary> 
     1. Create a basic index.js (back-end) [branch: feat-node-express-cors]
   </summary>
+  
   > Added to test the lint-staged and confirm that code is still running. 
+ 
   ### steps:
   #### Add dependencies
   Express - https://github.com/expressjs/express
