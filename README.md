@@ -3,11 +3,11 @@
 
 > A scaffold project organized by branches [for the time being] - change this when it is no longer true)
 ## steps:
+
 <details>
   <summary> 
     1. Create a basic index.js (back-end) [branch: feat-node-express-cors]
   </summary>
-
   > Added to test the lint-staged and confirm that code is still running. 
   ### steps:
   #### Add dependencies
@@ -106,6 +106,4 @@
     create mode 100644 .huskyrc.json
   ```
   > If you see a log like the one above, you have successfully configured husky in your project!
-
-
 </details>
