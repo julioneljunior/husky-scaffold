@@ -4,7 +4,8 @@
   "description": "A husky scaffold to javascript/node projects, using semistandard, lint-staged, commitizen, commitlint",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "cz": "./node_modules/.bin/cz"
   },
   "repository": {
     "type": "git",
