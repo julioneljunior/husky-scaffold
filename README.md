@@ -1,13 +1,25 @@
 # husky-scaffold
-[![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/afonsopacifer/open-source-boilerplate/blob/master/LICENSE.md)
+[![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg?style=flat-square)](https://github.com/afonsopacifer/open-source-boilerplate/blob/master/LICENSE.md)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
+[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/standard/semistandard)
 
-> A scaffold project organized by branches [for the time being] - change this when it is no longer true)
-## steps:
+Tutorial project to configure Husky with:
+* Lint-staged (using semistandard lint)
+* Commitlint
+* Commitizen
+>Please keep this list up to date!
+
+Project organized by branches, for each configuration/structure added, create a new branch and tell us a story (in the readme) of how to use it creating a new step in the list.
+
+
+## Steps:
 
 <details>
   <summary> 
-    1. Create a basic index.js (back-end) [branch: feat-node-express-cors]
+    1. [ optional ] Create a basic index.js (back-end) [branch: feat-node-express-cors]
   </summary>
+  
+  > Optional: if you already have a project created and just need to set up hooks, skip this step 
   
   > Added to test the lint-staged and confirm that code is still running. 
  
@@ -303,10 +315,9 @@
 
 </details>
 
-#### [OPTIONAL] Commit message cli and its integration with husky hooks
 <details>
   <summary> 
-    5. Add commitizen [branch: feat-commitizen]
+    5. [ optional ] Add commitizen [branch: feat-commitizen]
   </summary>
 
   > Add commitizen, a cli for commit messages
@@ -409,3 +420,9 @@
   ```
 
 </details>
+
+## Contributing
+
+Want to contribute? [Follow these recommendations](https://github.com/julioneljunior/husky-scaffold/blob/main/CONTRIBUTING.md).
+## License
+[MIT License](https://github.com/julioneljunior/husky-scaffold/blob/main/LICENSE) © [Elcio Junior](https://github.com/julioneljunior)
