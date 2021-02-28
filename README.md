@@ -302,3 +302,110 @@
   > If you see a log like the one above, you have successfully configured commitlint in your project!
 
 </details>
+
+#### [OPTIONAL] Commit message cli and its integration with husky hooks
+<details>
+  <summary> 
+    5. Add commitizen [branch: feat-commitizen]
+  </summary>
+
+  > Add commitizen, a cli for commit messages
+  ### steps
+
+  #### Add dependency
+  Commitizen - https://github.com/commitizen/cz-cli
+
+  ```javascript
+  npm install --save-dev commitizen
+  ```
+
+  #### Run commitizen initialization
+  > Running this configuration, commitizen will add a configuration and update your package.json file with additional properties. 
+
+  ```javascript
+  ./node_modules/.bin/commitizen init cz-conventional-changelog --save-dev --save-exact
+  ```
+  #### Add package.json script to commitizen
+  To run more easily, add the 'cz' script
+
+  ```javascript
+  "scripts": {
+    "start": "node index.js",
+    "cz": "./node_modules/.bin/cz"
+  },
+  ```
+  #### Update husky hook to use commitlint on commit-msg step
+
+  ```javascript
+  {
+    "hooks": {
+      "pre-commit": "./node_modules/.bin/lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "/dev/tty && git ./node_modules/.bin/cz --hook || true"
+    }
+  }
+  ```
+  >Why exec < /dev/tty? By default, git hooks are not interactive. This command allows the user to use their terminal to interact with Commitizen during the hook.
+
+  #### Test commitizen action with husky
+
+  First, confirm and commit the package.json and the configuration file.
+
+  Now, let's test the commitizen. 
+
+  ```shell
+  elcio@DESKTOP-H3TVAF1 MINGW64 /d/dev/personal/projects/study/guides/husky-scaffold (feat-commitizen)
+  $ npm run cz
+  cz-cli@4.2.3, cz-conventional-changelog@3.2.0
+
+  ? Select the type of change that you're committing: refactor: A code change that neither fixes a bug nor adds a feature
+  ? What is the scope of this change (e.g. component or file name): (press enter to skip)
+  ? Write a short, imperative tense description of the change (max 90 chars):
+  (35) update index to test commitizen cli
+  ? Provide a longer description of the change: (press enter to skip)
+
+  ? Are there any breaking changes? No
+  ? Does this change affect any open issues? No
+  husky > pre-commit (node v12.18.3)
+  [STARTED] Preparing...
+  [SUCCESS] Preparing...
+  [STARTED] Running tasks...
+  [STARTED] Running tasks for *.js
+  [STARTED] ./node_modules/.bin/semistandard --fix
+  [SUCCESS] ./node_modules/.bin/semistandard --fix
+  [SUCCESS] Running tasks for *.js
+  [SUCCESS] Running tasks...
+  [STARTED] Applying modifications...
+  [SUCCESS] Applying modifications...
+  [STARTED] Cleaning up...
+  [SUCCESS] Cleaning up...
+  husky > prepare-commit-msg (node v12.18.3)
+  sh: /dev/tty: No such file or directory
+  husky > commit-msg (node v12.18.3)
+  [feat-commitizen 039bf67] refactor: update index to test commitizen cli
+  1 file changed, 1 insertion(+), 1 deletion(-)
+  ```
+
+  > If you see a log like the one above, you have successfully configured commitizen in your project!
+  #### [OPTIONAL] Create a commitlint configuration file (.czrc)
+
+  To remove the settings we created in package.json when starting commitizen. This step is optional and has the purpose of organizing this configuration creating a separate file. 
+
+  >This configuration below just tells Commitizen which adapter actually want when try to commit to this repo
+
+  ```javascript
+  {
+    "path": "./node_modules/cz-conventional-changelog"
+  }
+  ```
+  If you opted to use a specific configuration file, you need to remove the same lines in package.json
+
+  ```javascript
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+  ```
+
+</details>
