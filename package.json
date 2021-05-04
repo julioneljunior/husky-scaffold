@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "cz": "./node_modules/.bin/cz"
+    "cz": "./node_modules/.bin/cz",
+    "prepare": "husky install",
+    "lint-staged":"./node_modules/.bin/lint-staged",
+    "commitlint": "./node_modules/.bin/commitlint"
   },
   "repository": {
     "type": "git",
@@ -26,7 +29,7 @@
     "@commitlint/config-conventional": "^12.0.0",
     "commitizen": "^4.2.3",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^4.3.8",
+    "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "semistandard": "^16.0.0"
   }
