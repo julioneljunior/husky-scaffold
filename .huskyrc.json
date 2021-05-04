@@ -1,7 +1,0 @@
-{
-  "hooks": {
-    "pre-commit": "./node_modules/.bin/lint-staged",
-    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-    "prepare-commit-msg": "/dev/tty && git ./node_modules/.bin/cz --hook || true"
-  }
-}
