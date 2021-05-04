@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+/dev/tty && git ./node_modules/.bin/cz --hook || true
